@@ -13,6 +13,7 @@ färger = ["#0cedda","#25458a","#de47f5","#ff0000","#fffb00","#fffb00"]
 t = turtle.Turtle()
 t.speed(9940)
 t.color("green")
+t.shape('turtle')
 turtle.bgcolor("#abb8cc")
 turtle.screensize(600, 500)
 
@@ -32,13 +33,17 @@ def on_press(key):
 listener = keyboard.Listener(on_press=on_press)
 listener.start()
 
+
 try:
+    senaste_vinkel = 0
     while True:
+        t.left(-senaste_vinkel)
         if rensa_canvas:
             rensa_canvas = False
             turtle.clearscreen()
             turtle.bgcolor("#abb8cc")
             t = turtle.Turtle()
+            t.shape('turtle')
             t.speed(9940)
         
         gamx = t.xcor()
@@ -49,19 +54,17 @@ try:
         t.sety(-y / 4 + 250)
         t.color(random.choice(färger))
         
-        print("----")
-        print(gamx, gamy)
-        print("----")
-        print(t.xcor(), t.ycor())
 
         deltx = t.xcor() - gamx
         delty = t.ycor() - gamy
 
         try:
-            vinkel = meth.atan(delty/deltx)
+            vinkel = meth.atan2(delty,deltx)
         except ValueError:
             print("NEJ!")
-        t.left(vinkel)
+            
+        senaste_vinkeln = vinkel*180/meth.pi
+        t.left(vinkel*180/meth.pi)
 
 except KeyboardInterrupt:
     print('\n')
