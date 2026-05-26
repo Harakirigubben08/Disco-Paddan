@@ -6,7 +6,7 @@ print("Detta program ritar andragradare åt dig=) med ekvationen ax^2+bx+c")
 a=float(input(print("Vad ska a värdet vara?")))
 b=float(input(print("vad ska B värdet vara?")))
 c=float(input(print("Vad ska C värdet vara?")))
-startx=-float(input(print("Vid vilken x vill du starta och rita den?")))
+startx=float(input(print("Vid vilken x vill du starta och rita den?")))
 slutx=float(input(print("Vid vilken x vill du sluta och rita den?")))
 
 t=turtle.Turtle()
